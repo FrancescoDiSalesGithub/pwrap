@@ -20,7 +20,7 @@ if __name__ == "__main__":
         graph_class.print_help()
         sys.exit(0)
 
-    wrapper_class = wrapper(sys.argv[2],sys.argv[3],sys.argv[4])
+    wrapper_class = wrapper(sys.argv[1],sys.argv[2],sys.argv[3])
     wrapper_class.check_wrapper()
 
 
