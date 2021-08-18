@@ -14,9 +14,12 @@ class wrapper:
         pass
 
     def check_wrapper(self):
-        for value in self.__possible_wrappers:
-            if self.__wrapper == self.__possible_wrappers[self.__wrapper]:
-                str_cmd = "{}{}{}".form(str(self.__url),str(self.__entry),self.__possible_wrappers[self.__wrapper])
+
+        keys = self.__possible_wrappers.keys()
+
+        for value_key in keys:
+            if self.__wrapper == value_key:
+                str_cmd = "{}?{}={}".format(str(self.__url),str(self.__entry),self.__possible_wrappers[self.__wrapper])
                 print(str_cmd)
     
     def elaborate(self):
