@@ -15,8 +15,9 @@ class wrapper:
 
     def check_wrapper(self):
         for value in self.__possible_wrappers:
-            if value == self.__possible_wrappers[value]:
-                print("ok")
+            if self.__wrapper == self.__possible_wrappers[self.__wrapper]:
+                str_cmd = "{}{}{}".form(str(self.__url),str(self.__entry),self.__possible_wrappers[self.__wrapper])
+                print(str_cmd)
     
     def elaborate(self):
         pass

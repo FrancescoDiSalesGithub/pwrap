@@ -21,6 +21,7 @@ if __name__ == "__main__":
         sys.exit(0)
 
     wrapper_class = wrapper(sys.argv[2],sys.argv[3],sys.argv[4])
+    wrapper_class.check_wrapper()
 
 
 
