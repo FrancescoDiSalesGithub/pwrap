@@ -5,7 +5,12 @@ class wrapper:
 
     __possible_wrappers={
         "file":"file://",
-        "zip":"zip://"}
+        "zip":"zip://datai"}
+
+    __template_values={
+
+        "zip":{"archive":None,"file":None}
+    }
 
     def __init__(self,url,entry,wrapper):
         self.__url=url
@@ -19,11 +24,12 @@ class wrapper:
 
         for value_key in keys:
             if self.__wrapper == value_key:
-                str_cmd = "{}?{}={}".format(str(self.__url),str(self.__entry),self.__possible_wrappers[self.__wrapper])
+                if self.__possible_wrappers.__contains__("datai"):
+                    pass
+                else:
+                    str_cmd = "{}?{}={}".format(str(self.__url),str(self.__entry),self.__possible_wrappers[self.__wrapper])
+                
                 print(str_cmd)
-    
-    def elaborate(self):
-        pass
 
     def set_url(self,url):
         self.__url = url
