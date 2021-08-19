@@ -19,7 +19,7 @@ class info:
 
         print("")
         print("example usage: ")
-        print("python3 pwrap.py http://vulnerablesite.com page file")
-        print("python3 pwrap.py http://vulnerablesite.com directory all")
-        print("python3 pwrap.py http://vulnerablesite.com module expect")
+        print("python3 pwrap.py http://vulnerablesite.com/ page file")
+        print("python3 pwrap.py http://vulnerablesite.com/ directory all")
+        print("python3 pwrap.py http://vulnerablesite.com/ module expect")
         
