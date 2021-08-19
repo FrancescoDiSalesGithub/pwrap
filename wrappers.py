@@ -22,23 +22,23 @@ class wrapper:
 
         keys = self.__possible_wrappers.keys()
         str_cmd = None
+        str_cmd = self.search_keys(keys)
 
-        if self.__wrapper == "all":
+        if self.is_not_found(str_cmd) == True:
+            print("filter not found")
 
-            str_cmd = self.search_keys(keys)
+        print(str_cmd)
 
-            if self.is_not_found(str_cmd) == True:
-                print("filter not found")
-            
-            print(str_cmd)
-
-        else:
-            str_cmd = self.search_keys(keys)
-
-            if self.is_not_found(str_cmd) == True:
-                print("filter not found")
-
-            print(str_cmd)
+    def search_keys(self,keys):
+        str_cmd = None
+        for value_key in keys:
+            if self.__wrapper == value_key:
+                if self.__possible_wrappers[value_key] == "datai":
+                    str_cmd = self.elaborate(value_key)
+                else:
+                    str_cmd = "{}/?{}={}".format(str(self.__url),str(self.__entry),self.__possible_wrappers[self.__wrapper])
+        
+        return str_cmd
 
     def elaborate(self,value):
 
@@ -69,17 +69,6 @@ class wrapper:
             return str_cmd
 
         return "notfound"
-
-    def search_keys(self,keys):
-
-        for value_key in keys:
-            if self.__wrapper == value_key:
-                if self.__possible_wrappers[value_key] == "datai":
-                    str_cmd = self.elaborate(value_key)
-                else:
-                    str_cmd = "{}/?{}={}".format(str(self.__url),str(self.__entry),self.__possible_wrappers[self.__wrapper])
-        
-        return str_cmd
         
     def is_not_found(self,str_cmd)->bool:
          if(str_cmd == "notfound"):
