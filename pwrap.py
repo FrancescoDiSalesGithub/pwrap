@@ -24,7 +24,11 @@ if __name__ == "__main__":
         filter_elaboration = wrapper_class.check_wrapper()
 
         with open("output.txt","w") as response:
-            response.write(requests.get(str(filter_elaboration)).content)
+            session = requests.Session()
+            cookies = dict(PHPSESSID=str(sys.argv[4]))
+            
+            responsePHP = requests.get(filter_elaboration.content,cookies)
+            response.write(responsePHP)
     
     except Exception as exception:
         print(exception)
