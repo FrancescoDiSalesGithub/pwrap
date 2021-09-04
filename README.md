@@ -3,6 +3,9 @@ command line utility for testing php local file inclusion
 
 ## How to use
 
+run:
+`pip3 install -r requirements.txt`
+
 launch pwrap by following these rules:
 
 ` python3 pwrap.py [URL] [File inclusion entry point] [wrapper] `
