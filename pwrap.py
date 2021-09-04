@@ -10,7 +10,7 @@ if __name__ == "__main__":
         print("no arguments passed")
         sys.exit(-1)
 
-    if len(sys.argv)>4:
+    if len(sys.argv)>5:
         print("you have insert more than three arguments")
         sys.exit(-1)
     
