@@ -5,7 +5,7 @@ class info:
     def print_help(self):
         print("------ help ----------")
         print("")
-        print("usage: python3 pwrap.py [URL] [File inclusion entrypoint] [wrapper]")
+        print("usage: python3 pwrap.py [URL] [File inclusion entrypoint] [wrapper] [filename-where-there-are-cookies-info.yaml]")
         print("")
         print("possible wrappers: ")
         print("file - puts the file wrapper in the entrypoint")
@@ -17,7 +17,17 @@ class info:
         
         print("")
         print("example usage: ")
-        print("python3 pwrap.py http://vulnerablesite.com/ page file")
-        print("python3 pwrap.py http://vulnerablesite.com/ directory all")
-        print("python3 pwrap.py http://vulnerablesite.com/ module expect")
+        print("python3 pwrap.py http://vulnerablesite.com/ page file cookie.yaml")
+        print("python3 pwrap.py http://vulnerablesite.com/ directory all cookie.yaml")
+        print("python3 pwrap.py http://vulnerablesite.com/ module expect cookie.yaml")
+
+        print("---------------------------------------------------")
+        print("correct yaml compilation")
+        print("---------------------------------------------------")
+        print(" ")
+        print('write each cookie information as "key":"value"')
+        print("example of correct yaml file: ")
+        print("---")
+        print('"PHPSESSID": "abc123456"')
+        print('"token":"secret information"')
         
