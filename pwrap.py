@@ -27,8 +27,9 @@ if __name__ == "__main__":
             session = requests.Session()
             cookies = dict(PHPSESSID=str(sys.argv[4]))
             
-            responsePHP = requests.get(filter_elaboration.content,cookies)
-            response.write(responsePHP)
+            responsePHP = requests.get(filter_elaboration,cookies)
+            print(responsePHP.content)
+            #response.write(responsePHP)
     
     except Exception as exception:
         print(exception)
