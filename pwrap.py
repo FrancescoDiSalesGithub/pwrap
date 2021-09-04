@@ -2,6 +2,7 @@
 import sys
 from wrappers import wrapper
 from graphics import info
+import requests
 
 
 
@@ -21,7 +22,15 @@ if __name__ == "__main__":
         sys.exit(0)
 
     wrapper_class = wrapper(sys.argv[1],sys.argv[2],sys.argv[3])
-    wrapper_class.check_wrapper()
+    filter_elaboration = wrapper_class.check_wrapper()
+
+    with open("output.txt","w") as response:
+        response.write(requests.get(str(filter_elaboration)).content)
+        response.close()
+
+
+    
+    
 
 
 

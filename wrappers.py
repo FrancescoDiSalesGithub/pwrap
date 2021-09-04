@@ -27,7 +27,7 @@ class wrapper:
         if self.is_not_found(str_cmd) == True:
             print("filter not found")
 
-        print(str_cmd)
+        return str_cmd
 
     def search_keys(self,keys):
         str_cmd = None
