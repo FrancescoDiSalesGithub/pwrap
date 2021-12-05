@@ -43,3 +43,13 @@ then run the program:
 `python3 pwrap.py http://somesite.com/ page file example-file.yaml`
 
 If everything goes well, pwrap will open a browser window with the outcome of the local file inclusion
+
+# Donations
+
+If you want to support me donate monero coins (XMR) at:
+`44TABHa24tB47FyvRfjUA6ASDiW26WoMXXtFuKrjXDSAP9ybzshbw6ZFeNwUf2UMGL279DfzLeBkzg6PAsZ5AruMRGDUaZx`
+
+or scan the qr-code:
+
+![monero wallet address](qrcode)
+
