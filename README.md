@@ -49,7 +49,4 @@ If everything goes well, pwrap will open a browser window with the outcome of th
 If you want to support me donate monero coins (XMR) at:
 `4B9WQivaHfd3miDfPKEfCianocGpBx9d8FXycz2vmNW3aBDVKHgkBd9Gmapt4RBVEpTwnehujsiUBBehUiLvnEHs7VFstCC`
 
-or scan the qr-code:
-
-![monero wallet address](https://github.com/FrancescoDiSalesGithub/FrancescoDiSalesGithub/blob/main/qrcode)
 
